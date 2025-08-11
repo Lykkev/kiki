@@ -1,0 +1,89 @@
+C:\Users\Fabrizio\source\repos\Kick ChatBOT\Kick ChatBOT\bin\Debug\Kick ChatBOT.exe.config
+C:\Users\Fabrizio\source\repos\Kick ChatBOT\Kick ChatBOT\bin\Debug\Kick ChatBOT.exe
+C:\Users\Fabrizio\source\repos\Kick ChatBOT\Kick ChatBOT\bin\Debug\Kick ChatBOT.pdb
+C:\Users\Fabrizio\source\repos\Kick ChatBOT\Kick ChatBOT\bin\Debug\MetroFramework.dll
+C:\Users\Fabrizio\source\repos\Kick ChatBOT\Kick ChatBOT\obj\Debug\Kick ChatBOT.csproj.AssemblyReference.cache
+C:\Users\Fabrizio\source\repos\Kick ChatBOT\Kick ChatBOT\obj\Debug\Kick_ChatBOT.ChatBOT.resources
+C:\Users\Fabrizio\source\repos\Kick ChatBOT\Kick ChatBOT\obj\Debug\Kick_ChatBOT.Properties.Resources.resources
+C:\Users\Fabrizio\source\repos\Kick ChatBOT\Kick ChatBOT\obj\Debug\Kick ChatBOT.csproj.GenerateResource.cache
+C:\Users\Fabrizio\source\repos\Kick ChatBOT\Kick ChatBOT\obj\Debug\Kick ChatBOT.csproj.CoreCompileInputs.cache
+C:\Users\Fabrizio\source\repos\Kick ChatBOT\Kick ChatBOT\obj\Debug\Kick Cha.4D7C12EE.Up2Date
+C:\Users\Fabrizio\source\repos\Kick ChatBOT\Kick ChatBOT\obj\Debug\Kick ChatBOT.exe
+C:\Users\Fabrizio\source\repos\Kick ChatBOT\Kick ChatBOT\obj\Debug\Kick ChatBOT.pdb
+C:\Users\Fabrizio\source\repos\Kick ChatBOT\Kick ChatBOT\obj\Debug\Kick ChatBOT.exe.config
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\obj\Debug\Kick ChatBOT.csproj.AssemblyReference.cache
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\obj\Debug\Kick_ChatBOT.ChatBOT.resources
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\obj\Debug\Kick_ChatBOT.Main.resources
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\obj\Debug\Kick_ChatBOT.Properties.Resources.resources
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\obj\Debug\Kick ChatBOT.csproj.GenerateResource.cache
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\obj\Debug\Kick ChatBOT.csproj.CoreCompileInputs.cache
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\obj\Debug\Kick ChatBOT.exe
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\obj\Debug\Kick ChatBOT.pdb
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\mongocrypt.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\Kick ChatBOT.exe.config
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\Kick ChatBOT.exe
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\Kick ChatBOT.pdb
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\obj\Debug\Kick Cha.4D7C12EE.Up2Date
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\AWSSDK.Core.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\AWSSDK.SecurityToken.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\DnsClient.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\MetroFramework.Design.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\Microsoft.CSharp.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\Microsoft.Win32.Registry.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\MongoDB.Bson.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\MongoDB.Driver.Core.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\MongoDB.Driver.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\MongoDB.Libmongocrypt.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\SharpCompress.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\Snappier.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Buffers.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.ComponentModel.Composition.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Data.DataSetExtensions.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Data.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Deployment.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Drawing.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Management.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Memory.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Numerics.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Runtime.Serialization.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Security.AccessControl.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Text.Encoding.CodePages.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Web.Extensions.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Windows.Forms.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Xml.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Xml.Linq.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\ZstdSharp.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\AWSSDK.Core.pdb
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\AWSSDK.Core.xml
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\AWSSDK.SecurityToken.pdb
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\AWSSDK.SecurityToken.xml
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\DnsClient.xml
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\Microsoft.Win32.Registry.xml
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\MongoDB.Bson.xml
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\MongoDB.Driver.xml
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\MongoDB.Driver.Core.xml
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\MongoDB.Libmongocrypt.pdb
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\Snappier.xml
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Buffers.xml
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Memory.xml
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Security.AccessControl.xml
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Text.Encoding.CodePages.xml
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\obj\Debug\Kick ChatBOT.exe.config
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Diagnostics.PerformanceCounter.dll
+C:\Users\Fabrizio\Pictures\Kick ChatBOT\Kick ChatBOT\bin\Debug\System.Diagnostics.PerformanceCounter.xml

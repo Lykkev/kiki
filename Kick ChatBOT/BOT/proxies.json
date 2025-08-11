@@ -1,0 +1,231 @@
+{
+  "proxies": [
+    {
+      "id": 1,
+      "host": "208.72.210.226",
+      "port": 7511,
+      "username": "sdkpsmzf",
+      "password": "0w3l5ucfu9p5",
+      "active": true,
+      "location": "US",
+      "last_used": null,
+      "error_count": 0
+    },
+    {
+      "id": 2,
+      "host": "199.115.177.133",
+      "port": 7417,
+      "username": "sdkpsmzf", 
+      "password": "0w3l5ucfu9p5",
+      "active": true,
+      "location": "US",
+      "last_used": null,
+      "error_count": 0
+    },
+    {
+      "id": 3,
+      "host": "207.228.57.10",
+      "port": 6503,
+      "username": "sdkpsmzf",
+      "password": "0w3l5ucfu9p5",
+      "active": true,
+      "location": "US", 
+      "last_used": null,
+      "error_count": 0
+    },
+    {
+      "id": 4,
+      "host": "103.105.165.103",
+      "port": 5493,
+      "username": "sdkpsmzf",
+      "password": "0w3l5ucfu9p5",
+      "active": true,
+      "location": "ASIA",
+      "last_used": null,
+      "error_count": 0
+    },
+    {
+      "id": 5,
+      "host": "156.237.58.116",
+      "port": 8014,
+      "username": "sdkpsmzf",
+      "password": "0w3l5ucfu9p5",
+      "active": true,
+      "location": "US",
+      "last_used": null,
+      "error_count": 0
+    },
+    {
+      "id": 6,
+      "host": "158.140.207.223",
+      "port": 5421,
+      "username": "sdkpsmzf",
+      "password": "0w3l5ucfu9p5",
+      "active": true,
+      "location": "US",
+      "last_used": null,
+      "error_count": 0
+    },
+    {
+      "id": 7,
+      "host": "158.140.213.203",
+      "port": 7403,
+      "username": "sdkpsmzf",
+      "password": "0w3l5ucfu9p5",
+      "active": true,
+      "location": "US",
+      "last_used": null,
+      "error_count": 0
+    },
+    {
+      "id": 8,
+      "host": "203.100.211.29",
+      "port": 6726,
+      "username": "sdkpsmzf",
+      "password": "0w3l5ucfu9p5",
+      "active": true,
+      "location": "ASIA",
+      "last_used": null,
+      "error_count": 0
+    },
+    {
+      "id": 9,
+      "host": "158.140.212.70",
+      "port": 7770,
+      "username": "sdkpsmzf",
+      "password": "0w3l5ucfu9p5",
+      "active": true,
+      "location": "US",
+      "last_used": null,
+      "error_count": 0
+    },
+    {
+      "id": 10,
+      "host": "72.1.138.6",
+      "port": 5897,
+      "username": "sdkpsmzf",
+      "password": "0w3l5ucfu9p5",
+      "active": true,
+      "location": "US",
+      "last_used": null,
+      "error_count": 0
+    },
+    {
+      "id": 11,
+      "host": "72.46.137.4",
+      "port": 5042,
+      "username": "sdkpsmzf",
+      "password": "0w3l5ucfu9p5",
+      "active": true,
+      "location": "US",
+      "last_used": null,
+      "error_count": 0
+    },
+    {
+      "id": 12,
+      "host": "203.160.119.157",
+      "port": 5856,
+      "username": "sdkpsmzf",
+      "password": "0w3l5ucfu9p5",
+      "active": true,
+      "location": "ASIA",
+      "last_used": null,
+      "error_count": 0
+    },
+    {
+      "id": 13,
+      "host": "154.217.181.127",
+      "port": 7529,
+      "username": "sdkpsmzf",
+      "password": "0w3l5ucfu9p5",
+      "active": true,
+      "location": "US",
+      "last_used": null,
+      "error_count": 0
+    },
+    {
+      "id": 14,
+      "host": "158.140.195.85",
+      "port": 6783,
+      "username": "sdkpsmzf",
+      "password": "0w3l5ucfu9p5",
+      "active": true,
+      "location": "US",
+      "last_used": null,
+      "error_count": 0
+    },
+    {
+      "id": 15,
+      "host": "45.56.149.157",
+      "port": 6544,
+      "username": "sdkpsmzf",
+      "password": "0w3l5ucfu9p5",
+      "active": true,
+      "location": "US",
+      "last_used": null,
+      "error_count": 0
+    },
+    {
+      "id": 16,
+      "host": "72.1.139.134",
+      "port": 5525,
+      "username": "sdkpsmzf",
+      "password": "0w3l5ucfu9p5",
+      "active": true,
+      "location": "US",
+      "last_used": null,
+      "error_count": 0
+    },
+    {
+      "id": 17,
+      "host": "203.100.211.117",
+      "port": 6814,
+      "username": "sdkpsmzf",
+      "password": "0w3l5ucfu9p5",
+      "active": true,
+      "location": "ASIA",
+      "last_used": null,
+      "error_count": 0
+    },
+    {
+      "id": 18,
+      "host": "216.98.250.113",
+      "port": 5185,
+      "username": "sdkpsmzf",
+      "password": "0w3l5ucfu9p5",
+      "active": true,
+      "location": "US",
+      "last_used": null,
+      "error_count": 0
+    },
+    {
+      "id": 19,
+      "host": "46.203.54.209",
+      "port": 8207,
+      "username": "sdkpsmzf",
+      "password": "0w3l5ucfu9p5",
+      "active": true,
+      "location": "EU",
+      "last_used": null,
+      "error_count": 0
+    },
+    {
+      "id": 20,
+      "host": "72.1.176.151",
+      "port": 8045,
+      "username": "sdkpsmzf",
+      "password": "0w3l5ucfu9p5",
+      "active": true,
+      "location": "US",
+      "last_used": null,
+      "error_count": 0
+    }
+  ],
+  "settings": {
+    "max_error_count": 3,
+    "proxy_timeout": 10,
+    "rotate_on_error": true,
+    "use_random_proxy": true,
+    "proxy_enabled": true
+  }
+}
