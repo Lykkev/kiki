@@ -36,13 +36,21 @@ namespace Kick_ChatBOT
                 {
                     engine.ProxiesPath = saved.Proxies;
                 }
-                if (!string.IsNullOrEmpty(saved.Messages)) 
+                if (!string.IsNullOrEmpty(saved.Messages))
                 {
                     engine.MessagesPath = saved.Messages;
                 }
-                if (!string.IsNullOrEmpty(saved.Config)) 
+                if (!string.IsNullOrEmpty(saved.Config))
                 {
                     engine.ConfigPath = saved.Config;
+                }
+                if (!string.IsNullOrEmpty(saved.CategoryMessages))
+                {
+                    engine.CategoryMessagesPath = saved.CategoryMessages;
+                }
+                if (!string.IsNullOrEmpty(saved.Greetings))
+                {
+                    engine.GreetingsPath = saved.Greetings;
                 }
             }
             engine.LoadAll();
@@ -56,6 +64,9 @@ namespace Kick_ChatBOT
             btnLoadProxies.Click += (s, ev) => SelectAndLoadJson("proxies.json", path => engine.ProxiesPath = path, () => { engine.UseProxies = true; Log("proxies.json cargado"); });
             btnLoadMessages.Click += (s, ev) => SelectAndLoadJson("messages.json", path => engine.MessagesPath = path, () => Log("messages.json cargado"));
             btnLoadConfig.Click += (s, ev) => OpenConfigEditor();
+            btnLoadCategoryMessages.Click += (s, ev) => SelectAndLoadJson("category_messages.json", path => engine.CategoryMessagesPath = path, () => Log("category_messages.json cargado"));
+            btnLoadGreetings.Click += (s, ev) => SelectAndLoadJson("greetings.json", path => engine.GreetingsPath = path, () => Log("greetings.json cargado"));
+            btnSendManual.Click += async (s, ev) => await SendManualAsync();
 
             // toggle proxies
             toggleProxy.CheckedChanged += (s, ev) =>
@@ -95,6 +106,15 @@ namespace Kick_ChatBOT
             });
         }
 
+        private async Task SendManualAsync()
+        {
+            var channel = txtChannel.Text?.Trim();
+            var msg = txtManualMessage.Text?.Trim();
+            if (string.IsNullOrEmpty(channel) || string.IsNullOrEmpty(msg)) { Log("Canal y mensaje requeridos"); return; }
+            var err = await engine.SendManualMessageAsync(channel, msg, Log, CancellationToken.None);
+            if (!string.IsNullOrEmpty(err)) Log("Error: " + err);
+        }
+
         private void StopTasks()
         {
             try { cts?.Cancel(); } catch { }
@@ -131,6 +151,8 @@ namespace Kick_ChatBOT
                     else if (defaultName == "proxies.json") current.Proxies = dlg.FileName;
                     else if (defaultName == "messages.json") current.Messages = dlg.FileName;
                     else if (defaultName == "config.json") current.Config = dlg.FileName;
+                    else if (defaultName == "category_messages.json") current.CategoryMessages = dlg.FileName;
+                    else if (defaultName == "greetings.json") current.Greetings = dlg.FileName;
                     UserPreferences.SavePaths(current);
 
                     LogCounts();
@@ -149,6 +171,9 @@ namespace Kick_ChatBOT
             }
             var personalities = engine.Messages?.Personalities?.Count ?? 0;
             var emoteCats = engine.Messages?.KickEmotes?.Count ?? 0;
+            var categoryCount = engine.CategoryMessages?.Count ?? 0;
+            var greetingsCount = engine.Greetings?.Greetings?.Count ?? 0;
+            var farewellsCount = engine.Greetings?.Farewells?.Count ?? 0;
             
             Log($"=== ESTADO ACTUAL ===");
             
@@ -164,6 +189,8 @@ namespace Kick_ChatBOT
             Log($"📡 Proxies: {proxiesActive}/{proxiesTotal} activos");
             Log($"💬 Personalidades: {personalities}");
             Log($"🎭 Emotes: {emoteCats} categorías");
+            Log($"📚 Categorías: {categoryCount}");
+            Log($"👋 Saludos: {greetingsCount} | Despedidas: {farewellsCount}");
             
             if (accountsCount == 0)
             {

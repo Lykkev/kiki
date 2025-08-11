@@ -40,6 +40,10 @@
             this.btnLoadConfig = new MetroFramework.Controls.MetroButton();
             this.toggleProxy = new MetroFramework.Controls.MetroToggle();
             this.lblProxy = new MetroFramework.Controls.MetroLabel();
+            this.txtManualMessage = new MetroFramework.Controls.MetroTextBox();
+            this.btnSendManual = new MetroFramework.Controls.MetroButton();
+            this.btnLoadCategoryMessages = new MetroFramework.Controls.MetroButton();
+            this.btnLoadGreetings = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // metroButton1
@@ -195,12 +199,80 @@
             this.lblProxy.TabIndex = 20;
             this.lblProxy.Text = "Usar Proxies";
             this.lblProxy.Theme = MetroFramework.MetroThemeStyle.Dark;
+            //
+            // txtManualMessage
+            //
+            this.txtManualMessage.CustomButton.Image = null;
+            this.txtManualMessage.CustomButton.Location = new System.Drawing.Point(231, 1);
+            this.txtManualMessage.CustomButton.Name = "";
+            this.txtManualMessage.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtManualMessage.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtManualMessage.CustomButton.TabIndex = 1;
+            this.txtManualMessage.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtManualMessage.CustomButton.UseSelectable = true;
+            this.txtManualMessage.CustomButton.Visible = false;
+            this.txtManualMessage.Lines = new string[0];
+            this.txtManualMessage.Location = new System.Drawing.Point(23, 52);
+            this.txtManualMessage.MaxLength = 32767;
+            this.txtManualMessage.Name = "txtManualMessage";
+            this.txtManualMessage.PasswordChar = '\0';
+            this.txtManualMessage.PromptText = "Mensaje manual";
+            this.txtManualMessage.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtManualMessage.SelectedText = "";
+            this.txtManualMessage.SelectionLength = 0;
+            this.txtManualMessage.SelectionStart = 0;
+            this.txtManualMessage.ShortcutsEnabled = true;
+            this.txtManualMessage.Size = new System.Drawing.Size(253, 23);
+            this.txtManualMessage.Style = MetroFramework.MetroColorStyle.Green;
+            this.txtManualMessage.TabIndex = 21;
+            this.txtManualMessage.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.txtManualMessage.UseSelectable = true;
+            this.txtManualMessage.WaterMark = "Mensaje manual";
+            this.txtManualMessage.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtManualMessage.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            //
+            // btnSendManual
+            //
+            this.btnSendManual.Location = new System.Drawing.Point(300, 52);
+            this.btnSendManual.Name = "btnSendManual";
+            this.btnSendManual.Size = new System.Drawing.Size(129, 23);
+            this.btnSendManual.Style = MetroFramework.MetroColorStyle.Teal;
+            this.btnSendManual.TabIndex = 22;
+            this.btnSendManual.Text = "Enviar manual";
+            this.btnSendManual.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnSendManual.UseSelectable = true;
+            //
+            // btnLoadCategoryMessages
+            //
+            this.btnLoadCategoryMessages.Location = new System.Drawing.Point(23, 155);
+            this.btnLoadCategoryMessages.Name = "btnLoadCategoryMessages";
+            this.btnLoadCategoryMessages.Size = new System.Drawing.Size(183, 23);
+            this.btnLoadCategoryMessages.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnLoadCategoryMessages.TabIndex = 23;
+            this.btnLoadCategoryMessages.Text = "Cargar category_messages.json";
+            this.btnLoadCategoryMessages.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnLoadCategoryMessages.UseSelectable = true;
+            //
+            // btnLoadGreetings
+            //
+            this.btnLoadGreetings.Location = new System.Drawing.Point(224, 155);
+            this.btnLoadGreetings.Name = "btnLoadGreetings";
+            this.btnLoadGreetings.Size = new System.Drawing.Size(183, 23);
+            this.btnLoadGreetings.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnLoadGreetings.TabIndex = 24;
+            this.btnLoadGreetings.Text = "Cargar greetings.json";
+            this.btnLoadGreetings.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btnLoadGreetings.UseSelectable = true;
             // 
             // ChatBOT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(762, 450);
+            this.Controls.Add(this.btnLoadGreetings);
+            this.Controls.Add(this.btnLoadCategoryMessages);
+            this.Controls.Add(this.btnSendManual);
+            this.Controls.Add(this.txtManualMessage);
             this.Controls.Add(this.lblProxy);
             this.Controls.Add(this.toggleProxy);
             this.Controls.Add(this.btnLoadConfig);
@@ -239,6 +311,10 @@
         private MetroFramework.Controls.MetroButton btnLoadConfig;
         private MetroFramework.Controls.MetroToggle toggleProxy;
         private MetroFramework.Controls.MetroLabel lblProxy;
+        private MetroFramework.Controls.MetroTextBox txtManualMessage;
+        private MetroFramework.Controls.MetroButton btnSendManual;
+        private MetroFramework.Controls.MetroButton btnLoadCategoryMessages;
+        private MetroFramework.Controls.MetroButton btnLoadGreetings;
     }
 }
 

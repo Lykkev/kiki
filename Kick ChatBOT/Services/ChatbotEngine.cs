@@ -6,6 +6,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using Kick_ChatBOT.Models;
+using Newtonsoft.Json.Linq;
 
 namespace Kick_ChatBOT.Services
 {
@@ -17,12 +18,17 @@ namespace Kick_ChatBOT.Services
         public List<Account> Accounts { get; private set; }
         public AppConfig Config { get; private set; }
         public Messages Messages { get; private set; }
+        public Dictionary<string, List<string>> CategoryMessages { get; private set; }
+        public Greetings Greetings { get; private set; }
         public ProxiesFile Proxies { get; private set; }
         public bool UseProxies { get; set; }
         public string KicksPath { get; set; }
         public string ConfigPath { get; set; }
         public string MessagesPath { get; set; }
         public string ProxiesPath { get; set; }
+        public string CategoryMessagesPath { get; set; }
+        public string GreetingsPath { get; set; }
+        public string CurrentCategory { get; private set; }
 
         public ChatbotEngine(string basePath)
         {
@@ -54,6 +60,8 @@ namespace Kick_ChatBOT.Services
             var configPath = GetPriorityPath(ConfigPath, "config.json");
             var messagesPath = GetPriorityPath(MessagesPath, "messages.json");
             var proxiesPath = GetPriorityPath(ProxiesPath, "proxies.json");
+            var categoryPath = GetPriorityPath(CategoryMessagesPath, "category_messages.json");
+            var greetingsPath = GetPriorityPath(GreetingsPath, "greetings.json");
 
             // Cargar cuentas: SOLO del archivo del usuario
             if (kicksPath != null)
@@ -83,6 +91,26 @@ namespace Kick_ChatBOT.Services
             else
             {
                 Messages = GetDefaultMessages();
+            }
+
+            // Cargar mensajes por categoría
+            if (categoryPath != null)
+            {
+                CategoryMessages = JsonStorage.ReadJsonFile(categoryPath, GetDefaultCategoryMessages());
+            }
+            else
+            {
+                CategoryMessages = GetDefaultCategoryMessages();
+            }
+
+            // Cargar saludos/despedidas
+            if (greetingsPath != null)
+            {
+                Greetings = JsonStorage.ReadJsonFile(greetingsPath, GetDefaultGreetings());
+            }
+            else
+            {
+                Greetings = GetDefaultGreetings();
             }
 
             // Cargar proxies
@@ -165,6 +193,43 @@ namespace Kick_ChatBOT.Services
                 {
                     { "greetings", new List<string> { "hey", "hi", "hello", "sup" } },
                     { "reactions", new List<string> { "nice", "cool", "wow", "gg" } }
+                }
+            };
+        }
+
+        private Dictionary<string, List<string>> GetDefaultCategoryMessages()
+        {
+            return new Dictionary<string, List<string>>
+            {
+                { "valorant", new List<string> { "qué buena ronda 🔥", "tremendo aim bro", "esa ulti fue dios" } },
+                { "just chatting", new List<string> { "jajaja qué historia", "¿y eso en qué acabó?", "esto parece una charla de café ☕" } },
+                { "default", new List<string> { "nice jugada", "buen movimiento ahí", "buena partida" } }
+            };
+        }
+
+        private Greetings GetDefaultGreetings()
+        {
+            return new Greetings
+            {
+                Greetings = new List<string>
+                {
+                    "holaaa, recién llego",
+                    "hola a todos",
+                    "buenas, me sumo",
+                    "hey, cómo va eso",
+                    "holi, entrando al chat",
+                    "qué tal gente",
+                    "saludos, listo para ver"
+                },
+                Farewells = new List<string>
+                {
+                    "chau",
+                    "nos vemos",
+                    "me voy yendo",
+                    "hasta luego",
+                    "adiós, cuídense",
+                    "me despido, bye",
+                    "nos leemos luego"
                 }
             };
         }
@@ -257,12 +322,23 @@ namespace Kick_ChatBOT.Services
                 return GetKickEmoteOnly();
             }
 
-            var personalities = Messages?.Personalities ?? new Dictionary<string, List<string>>();
-            List<string> list;
-            if (!personalities.TryGetValue(personality ?? "", out list))
+            List<string> list = null;
+
+            if (!string.IsNullOrEmpty(CurrentCategory) && CategoryMessages != null &&
+                CategoryMessages.TryGetValue(CurrentCategory, out var catList) && catList.Count > 0 &&
+                random.NextDouble() < 0.40)
             {
-                personalities.TryGetValue("casual", out list);
+                list = catList;
             }
+            else
+            {
+                var personalities = Messages?.Personalities ?? new Dictionary<string, List<string>>();
+                if (!personalities.TryGetValue(personality ?? "", out list))
+                {
+                    personalities.TryGetValue("casual", out list);
+                }
+            }
+
             if (list == null || list.Count == 0) list = new List<string> { "nice! 👍" };
             var baseMsg = list[random.Next(list.Count)];
 
@@ -305,6 +381,105 @@ namespace Kick_ChatBOT.Services
             return message;
         }
 
+        private string ExtractCategoryName(ChannelInfo info)
+        {
+            try
+            {
+                var name = info?.LiveStream?.Category?.Name ?? info?.LiveStream?.Category?.Slug;
+                if (string.IsNullOrEmpty(name))
+                {
+                    name = info?.LiveStream?.Categories?.FirstOrDefault()?.Name ?? info?.LiveStream?.Categories?.FirstOrDefault()?.Slug;
+                }
+                if (string.IsNullOrEmpty(name))
+                {
+                    name = info?.RecentCategories?.FirstOrDefault()?.Name ?? info?.RecentCategories?.FirstOrDefault()?.Slug;
+                }
+                return name?.ToLowerInvariant();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        private async Task SendTemplateMessagesAsync(long chatroomId, List<string> templates, string action, Action<string> log, CancellationToken ct)
+        {
+            if (templates == null || templates.Count == 0 || Accounts == null || Accounts.Count == 0) return;
+            var accountsOrdered = Accounts.ToList();
+            if (Config.Behavior.RandomizeOrder) accountsOrdered = accountsOrdered.OrderBy(_ => random.Next()).ToList();
+            var count = random.Next(10, 16);
+            var idx = 0;
+            for (int i = 0; i < count; i++)
+            {
+                var acc = accountsOrdered[idx];
+                var msg = templates[random.Next(templates.Count)];
+                var typing = RandomBetweenDouble(Config.Delays.TypingSimulation.Min, Config.Delays.TypingSimulation.Max);
+                log($"👋 {acc.Username} {action} '{msg}'... ({typing:F1}s)");
+                await Task.Delay(TimeSpan.FromSeconds(typing), ct).ConfigureAwait(false);
+                IApiClient api = new KickApiClient(BuildProxyForAccount(acc));
+                try
+                {
+                    var result = await api.SendMessageAsync(chatroomId, msg, acc.Token, ct).ConfigureAwait(false);
+                    if (result.Item1)
+                    {
+                        acc.MessagesSent = (acc.MessagesSent) + 1;
+                        acc.LastMessageTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+                        log($"✅ [{acc.Username}]: {msg}");
+                    }
+                    else
+                    {
+                        log($"❌ {acc.Username} FALLÓ al {action} - Status: {result.Item2}");
+                    }
+                }
+                finally
+                {
+                    api.Dispose();
+                }
+                idx = (idx + 1) % accountsOrdered.Count;
+                if (i < count - 1)
+                {
+                    await Task.Delay(TimeSpan.FromSeconds(random.Next(2, 5)), ct).ConfigureAwait(false);
+                }
+            }
+        }
+
+        private Task SendGreetingMessagesAsync(long chatroomId, Action<string> log, CancellationToken ct)
+            => SendTemplateMessagesAsync(chatroomId, Greetings?.Greetings, "saludando", log, ct);
+
+        private Task SendFarewellMessagesAsync(long chatroomId, Action<string> log, CancellationToken ct)
+            => SendTemplateMessagesAsync(chatroomId, Greetings?.Farewells, "despidiéndose", log, ct);
+
+        public async Task<string> SendManualMessageAsync(string channel, string message, Action<string> log, CancellationToken ct)
+        {
+            if (Accounts == null || Accounts.Count == 0) return "No hay cuentas en kicks.json";
+            var acc = Accounts[0];
+            IApiClient api = new KickApiClient(BuildProxyForAccount(acc));
+            try
+            {
+                var info = await api.GetChannelInfoAsync(channel, acc.Token, ct).ConfigureAwait(false);
+                if (info.Item2 != null) return info.Item2;
+                var chatroomId = info.Item1?.ChatRoom?.Id ?? 0;
+                if (chatroomId <= 0) return "No se pudo obtener chatroom ID";
+                var result = await api.SendMessageAsync(chatroomId, message, acc.Token, ct).ConfigureAwait(false);
+                if (result.Item1)
+                {
+                    log($"✅ [{acc.Username}] (manual): {message}");
+                    acc.MessagesSent = (acc.MessagesSent) + 1;
+                    acc.LastMessageTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+                }
+                else
+                {
+                    log($"❌ {acc.Username} FALLÓ al enviar manual - Status: {result.Item2}");
+                    log($"   📋 Respuesta: {result.Item3}");
+                }
+                return null;
+            }
+            finally
+            {
+                api.Dispose();
+            }
+        }
+
         public async Task<string> StartChatbotOnceBatchAsync(string channel, Action<string> log, CancellationToken ct)
         {
             if (Accounts == null || Accounts.Count == 0) return "No hay cuentas en kicks.json";
@@ -326,10 +501,13 @@ namespace Kick_ChatBOT.Services
                 if (info.Item2 != null) return info.Item2;
                 var chatroomId = info.Item1?.ChatRoom?.Id ?? 0;
                 if (chatroomId <= 0) return "No se pudo obtener chatroom ID";
-                
+                CurrentCategory = ExtractCategoryName(info.Item1);
                 log($"✅ Canal: {channel} (ID: {info.Item1.Id})");
                 log($"💬 Chatroom ID: {chatroomId}");
                 log($"🔴 En vivo: {(info.Item1.LiveStream != null ? "Sí" : "No")}");
+                if (!string.IsNullOrEmpty(CurrentCategory)) log($"🎮 Categoría: {CurrentCategory}");
+
+                await SendGreetingMessagesAsync(chatroomId, log, ct).ConfigureAwait(false);
 
                 var accountsOrdered = Accounts.ToList();
                 if (Config.Behavior.RandomizeOrder) accountsOrdered = accountsOrdered.OrderBy(_ => random.Next()).ToList();
@@ -352,6 +530,7 @@ namespace Kick_ChatBOT.Services
                         await Task.Delay(TimeSpan.FromSeconds(pause), ct).ConfigureAwait(false);
                     }
                 }
+                await SendFarewellMessagesAsync(chatroomId, log, CancellationToken.None).ConfigureAwait(false);
                 return null;
             }
             finally
@@ -462,6 +641,7 @@ namespace Kick_ChatBOT.Services
             if (Accounts == null || Accounts.Count == 0) return "No hay cuentas en kicks.json";
             var first = Accounts[0];
             IApiClient api = new KickApiClient(BuildProxyForAccount(first));
+            long chatroomId = 0;
             try
             {
                 var info = await api.GetChannelInfoAsync(channel, first.Token, ct).ConfigureAwait(false);
@@ -473,8 +653,16 @@ namespace Kick_ChatBOT.Services
                     info = await api.GetChannelInfoAsync(channel, first.Token, ct).ConfigureAwait(false);
                 }
                 if (info.Item2 != null) return info.Item2;
-                var chatroomId = info.Item1?.ChatRoom?.Id ?? 0;
+                chatroomId = info.Item1?.ChatRoom?.Id ?? 0;
                 if (chatroomId <= 0) return "No se pudo obtener chatroom ID";
+
+                CurrentCategory = ExtractCategoryName(info.Item1);
+                log($"✅ Canal: {channel} (ID: {info.Item1.Id})");
+                log($"💬 Chatroom ID: {chatroomId}");
+                log($"🔴 En vivo: {(info.Item1.LiveStream != null ? "Sí" : "No")}");
+                if (!string.IsNullOrEmpty(CurrentCategory)) log($"🎮 Categoría: {CurrentCategory}");
+
+                await SendGreetingMessagesAsync(chatroomId, log, ct).ConfigureAwait(false);
 
                 var accounts = Accounts.ToList();
                 if (Config.Behavior.RandomizeOrder) accounts = accounts.OrderBy(_ => random.Next()).ToList();
@@ -543,6 +731,7 @@ namespace Kick_ChatBOT.Services
             }
             finally
             {
+                await SendFarewellMessagesAsync(chatroomId, log, CancellationToken.None).ConfigureAwait(false);
                 api?.Dispose();
             }
         }

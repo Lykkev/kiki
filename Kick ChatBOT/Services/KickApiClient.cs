@@ -291,12 +291,25 @@ namespace Kick_ChatBOT.Services
     {
         [JsonProperty("id")] public long Id { get; set; }
         [JsonProperty("chatroom")] public ChatRoom ChatRoom { get; set; }
-        [JsonProperty("livestream")] public object LiveStream { get; set; }
+        [JsonProperty("livestream")] public LiveStream LiveStream { get; set; }
+        [JsonProperty("recent_categories")] public List<Category> RecentCategories { get; set; }
     }
 
     public class ChatRoom
     {
         [JsonProperty("id")] public long Id { get; set; }
+    }
+
+    public class LiveStream
+    {
+        [JsonProperty("category")] public Category Category { get; set; }
+        [JsonProperty("categories")] public List<Category> Categories { get; set; }
+    }
+
+    public class Category
+    {
+        [JsonProperty("name")] public string Name { get; set; }
+        [JsonProperty("slug")] public string Slug { get; set; }
     }
 }
 
