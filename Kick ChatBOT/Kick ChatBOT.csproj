@@ -238,6 +238,7 @@
     <Compile Include="Models\Messages.cs" />
     <Compile Include="Models\ProxyConfig.cs" />
     <Compile Include="Models\UserPaths.cs" />
+    <Compile Include="Models\Greetings.cs" />
     <Compile Include="Services\JsonStorage.cs" />
     <Compile Include="Services\KickApiClient.cs" />
     <Compile Include="Services\IApiClient.cs" />
